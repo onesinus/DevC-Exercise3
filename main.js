@@ -12,53 +12,21 @@ function loadTableData(){
 }
 
 function addTr(data){
-	let tbody 	= document.getElementById("isiTable");
-	for (var i = 0; i < data.length; i++) {
-	    let tr 				= document.createElement('tr');
-	    let tdName			= document.createElement('td');
-	    tdName.innerHTML 	= data[i].name;	
-
-	    let tdRotation		= document.createElement('td');
-	    tdRotation.innerHTML= data[i].rotation_period;
-
-	    let tdOrbital		= document.createElement('td');
-	    tdOrbital.innerHTML	= data[i].orbital_period;
-
-	    let tdDiameter		= document.createElement('td');
-	    tdDiameter.innerHTML= data[i].diameter;
-
-	    let tdClimate		= document.createElement('td');
-	    tdClimate.innerHTML	= data[i].climate;
-
-	    let tdGravity		= document.createElement('td');
-	    tdGravity.innerHTML	= data[i].gravity;
-
-	    let tdTerrain		= document.createElement('td');
-	    tdTerrain.innerHTML	= data[i].terrain;
-
-	    let tdSurfaceWater	= document.createElement('td');
-	    tdSurfaceWater.innerHTML	= data[i].surface_water;
-
-	    let tdPopulation	= document.createElement('td');
-	    tdPopulation.innerHTML	= data[i].population;
-
-	    let tdResidents		= document.createElement('td');
-	    tdResidents.innerHTML	= data[i].residents;
-
-	    let tdFilms		= document.createElement('td');
-	    tdFilms.innerHTML	= data[i].films;
-
-	    tr.appendChild(tdName);
-	    tr.appendChild(tdRotation);
-	    tr.appendChild(tdOrbital);
-	    tr.appendChild(tdDiameter);
-	    tr.appendChild(tdClimate);
-	    tr.appendChild(tdGravity);
-	    tr.appendChild(tdTerrain);
-	    tr.appendChild(tdSurfaceWater);
-	    tr.appendChild(tdPopulation);
-	    // tr.appendChild(tdResidents);
-	    // tr.appendChild(tdFilms);
+	let tbody 	= document.getElementById("isiTable");	
+	for (let [key, value] of Object.entries(data)) {
+		let tr 		= document.createElement('tr');
+		for (column in value) {
+			console.log(column);
+			if(value.hasOwnProperty(column)){
+			    let td			= document.createElement('td');
+				if(column == "films" || column == "residents"){
+					value[column] = value[column].join(";")
+					td.setAttribute("style", "width: 10px");
+				}
+			    td.innerHTML 	= value[column];	
+			    tr.appendChild(td);
+			}
+		}
 
 		tbody.appendChild(tr);
 	}
