@@ -33,12 +33,32 @@ function addTr(data){
 	    let tdGravity		= document.createElement('td');
 	    tdGravity.innerHTML	= data[i].gravity;
 
+	    let tdTerrain		= document.createElement('td');
+	    tdTerrain.innerHTML	= data[i].terrain;
+
+	    let tdSurfaceWater	= document.createElement('td');
+	    tdSurfaceWater.innerHTML	= data[i].surface_water;
+
+	    let tdPopulation	= document.createElement('td');
+	    tdPopulation.innerHTML	= data[i].population;
+
+	    let tdResidents		= document.createElement('td');
+	    tdResidents.innerHTML	= data[i].residents;
+
+	    let tdFilms		= document.createElement('td');
+	    tdFilms.innerHTML	= data[i].films;
+
 	    tr.appendChild(tdName);
 	    tr.appendChild(tdRotation);
 	    tr.appendChild(tdOrbital);
 	    tr.appendChild(tdDiameter);
 	    tr.appendChild(tdClimate);
 	    tr.appendChild(tdGravity);
+	    tr.appendChild(tdTerrain);
+	    tr.appendChild(tdSurfaceWater);
+	    tr.appendChild(tdPopulation);
+	    // tr.appendChild(tdResidents);
+	    // tr.appendChild(tdFilms);
 
 		tbody.appendChild(tr);
 	}
