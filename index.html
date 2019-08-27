@@ -7,7 +7,14 @@
     <center>
         <h1>Daftar Planet</h1>
     </center>
-    <input type="text" name="search" placeholder="Search">
+    <input 
+    	type="text" 
+    	name="search" 
+    	placeholder="Search data then press Enter" 
+    	style="width: 100%" 
+    	autocomplete="off" 
+    	onchange="loadTableData(this.value)"
+    	/>
 	<table border="1" style="width:100%">
 		<thead>		
 			<tr>
@@ -27,9 +34,7 @@
 				<th>Url</th>
 			</tr>
 		</thead>
-		<tbody id="isiTable">
-			
-		</tbody>
+		<tbody id="isiTable"></tbody>
 	</table> 
 	<script type="text/javascript" src="main.js"></script>   
 </body>
